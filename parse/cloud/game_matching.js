@@ -14,6 +14,10 @@ var _matchStatusKeyCancelled = "cancelled";
 var _matchTurnKey = "turn";
 var _matchTurnKeyPlayer1 = "player_1";
 var _matchTurnKeyPlayer2 = "player_2";
+var _wordsArrayKey= "words";
+var _wordsArray = [];
+var _lastLetterKey = "lastLeter";
+var _lastLetterString = "";
 
 var Match = Parse.Object.extend(_matchClassName);
 
@@ -107,6 +111,8 @@ _createNewMatch = function(player, options) {
   match.set(_matchPlayer1Key, player); // challenger is player 1
   match.set(_matchStatusKey, _matchStatusKeyWaiting); // wait for second player
   match.set(_matchTurnKey, _matchTurnKeyPlayer1); // default challenger starts
+  match.set(_wordsArrayKey,_wordsArray);
+  match.set(_lastLetterKey,_lastLetterString);
 
   _log("Creating new game with properties:", player);
   _log(JSON.stringify(match), player);
